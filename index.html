@@ -162,17 +162,18 @@
         }
 
         /* ==========================================
-           ヒーローセクション（空間とタイポグラフィの芸術）
+           ヒーローセクション（シネマティック画像背景）
            ========================================== */
         #home {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            /* 背景にうっすらと方眼紙のような微細グリッドを配置し、知的さを演出 */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
-            background-size: 40px 40px;
+            /* 背景画像 IMG_4 を設定し、文字の視認性を高めるためダークグラデーションを重ねる */
+            background: linear-gradient(rgba(10, 15, 24, 0.5), rgba(10, 15, 24, 0.85)), url('IMG_4.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             padding-top: 90px;
             text-align: center;
         }
@@ -193,14 +194,16 @@
             font-size: clamp(2rem, 4vw, 3.2rem);
             font-weight: 600;
             line-height: 1.4;
-            color: var(--text-dark);
+            /* 背景が暗いため文字を白に変更 */
+            color: var(--text-light);
             margin-bottom: 40px;
             letter-spacing: 0.02em;
         }
 
         .hero-subtitle {
             font-size: clamp(1rem, 2vw, 1.1rem);
-            color: var(--text-muted);
+            /* サブタイトルも白の半透明に変更 */
+            color: rgba(255, 255, 255, 0.8);
             max-width: 800px;
             margin: 0 auto 60px;
             font-weight: 400;
@@ -208,7 +211,7 @@
             letter-spacing: 0.05em;
         }
 
-        /* SNSリンクのミニマル・ピルデザイン */
+        /* SNSリンクのミニマル・ピルデザイン（ダーク背景対応） */
         .socials-box {
             display: flex;
             align-items: center;
@@ -216,7 +219,7 @@
         }
 
         .socials-title {
-            color: var(--text-muted);
+            color: rgba(255, 255, 255, 0.6);
             font-size: 0.75rem;
             font-weight: 500;
             letter-spacing: 0.2em;
@@ -231,7 +234,7 @@
             top: 50%;
             width: 20px;
             height: 1px;
-            background: var(--border-light);
+            background: rgba(255, 255, 255, 0.2);
         }
 
         .hero-socials {
@@ -247,17 +250,17 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-dark);
+            color: var(--text-light);
             font-size: 1.1rem;
-            border: 1px solid var(--border-light);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             background: transparent;
             transition: var(--transition-fast);
         }
 
         .social-icon:hover {
-            color: var(--text-light);
-            background: var(--text-dark);
-            border-color: var(--text-dark);
+            color: var(--bg-dark);
+            background: var(--text-light);
+            border-color: var(--text-light);
         }
 
         /* ==========================================
