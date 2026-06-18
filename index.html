@@ -214,12 +214,11 @@
             transform: translateY(-3px);
         }
 
-        /* プロフィールレイアウト */
+        /* プロフィールレイアウト（テキストと写真の比率を適度なバランスに修正） */
         .profile-grid {
             display: grid;
-            /* テキストエリアより写真エリア(右側)を少し広く設定 */
-            grid-template-columns: 1fr 1.2fr;
-            gap: 60px;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
             align-items: start;
         }
 
@@ -279,13 +278,13 @@
         }
 
         /* 
-           実績ギャラリー（すべて特大・見切れなし設定）
-           1カラムにして縦に全幅で3枚並べます
+           実績ギャラリー（最初の「左1枚・右2枚」のレイアウト）
+           適度なサイズを保ちつつ、見切れ防止の調整を加えています
         */
         .gallery-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 15px;
             position: sticky;
             top: 130px;
         }
@@ -293,18 +292,30 @@
         .gallery-item {
             position: relative;
             overflow: hidden;
-            background: #e2e8f0;
             border-radius: 8px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            /* aspect-ratioとheightの固定を外して自然なサイズを許容 */
+            background: var(--bg-sub);
         }
 
         .gallery-item img {
             width: 100%;
-            height: auto; /* 画像の本来の比率を維持（見切れ防止） */
+            height: 100%;
+            /* 枠を埋めつつ、人物の顔が切れないよう「上部中央」を基準に配置 */
+            object-fit: cover;
+            object-position: center top; 
             display: block;
             filter: grayscale(100%) brightness(0.95);
             transition: var(--transition);
+        }
+
+        /* 右側の小さな写真を綺麗な正方形に固定し、過度な見切れを防ぐ */
+        .gallery-item:not(.large) {
+            aspect-ratio: 1 / 1;
+        }
+
+        /* 左側の大きな写真は右側2枚の高さに合わせて自動的にスパンする */
+        .gallery-item.large {
+            grid-row: span 2;
         }
 
         .gallery-item:hover img {
@@ -410,7 +421,7 @@
             }
             .gallery-grid {
                 position: static;
-                max-width: 100%;
+                max-width: 550px; /* スマホ・タブレット表示時も適度なサイズに制御 */
                 margin: 0 auto;
             }
             .hero-title {
@@ -513,7 +524,7 @@
                 </div>
                 
                 <div class="gallery-grid">
-                    <div class="gallery-item">
+                    <div class="gallery-item large">
                         <img src="IMG_1.jpeg" alt="瀬越空人 プロフィール写真1">
                     </div>
                     <div class="gallery-item">
