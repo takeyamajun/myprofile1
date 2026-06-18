@@ -15,7 +15,7 @@
         :root {
             /* 完全に洗練されたカラーパレット */
             --bg-light: #fcfcfd;
-            --bg-dark: #000000; /* 写真の背景と完璧に一体化させる絶対的な黒 */
+            --bg-dark: #000000; /* 写真の背景とシームレスに繋ぐ純黒 */
             --text-dark: #111827;
             --text-muted: #6b7280;
             --text-light: #ffffff;
@@ -162,21 +162,21 @@
         }
 
         /* ==========================================
-           ヒーローセクション（漆黒同化・シネマティック融合）
+           ヒーローセクション（ダイナミック・プログレード統合）
            ========================================== */
         #home {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: var(--bg-dark); /* 完全に写真とフィットさせる黒 */
+            background-color: var(--bg-dark);
             padding-top: 90px;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        /* 枠線を100%消滅させるスタジオライティング・エフェクト */
+        /* ユーザー様のご指定どおり、横サイズに合わせつつ全体を下げて見切れを防ぐ完璧な設定 */
         #home::before {
             content: '';
             position: absolute;
@@ -185,25 +185,24 @@
             width: 100%;
             height: 100%;
             background-image: url('IMG_4.jpeg');
-            background-size: contain; /* 絶対に見切れない最高のフィット感 */
-            background-position: center;
+            background-size: cover; /* 左右のデッドスペース（黒い帯）を完全に消去し、画面全体に広げる */
+            background-position: center 12%; /* 画像全体を下方にずらし、頭の上の見切れを防いで顔を完璧な位置に配置 */
             background-repeat: no-repeat;
             pointer-events: none;
             z-index: 1;
-            /* コントラストと明度をプロ調整。写真の背景を完璧なリッチブラックへ落とし込み、周囲と100%同化 */
-            filter: contrast(1.1) brightness(0.9); 
+            filter: brightness(0.75) contrast(1.05); /* 写真のトーンを落とし、白文字の美しさを極限まで引き立てる */
         }
         
-        /* 上下左右の4方向から闇を重ねるクアッド・グラデーション（境界線の完全抹消レイヤー） */
+        /* 画面上下に広がる映画のような極上グラデーション（文字を劇的に浮かび上がらせる） */
         #home::after {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: 
-                /* 上下のフェード（文字の可読性確保） */
-                linear-gradient(to bottom, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 40%, rgba(0, 0, 0, 0.4) 60%, rgba(0, 0, 0, 0.9) 100%),
-                /* 左右のフェード（縦の境界線を完全に消滅させ、枠へのフィット感を極限まで高める） */
-                linear-gradient(to right, rgba(0, 0, 0, 0.95) 0%, transparent 25%, transparent 75%, rgba(0, 0, 0, 0.95) 100%);
+            background: linear-gradient(to bottom, 
+                rgba(0, 0, 0, 0.85) 0%, 
+                rgba(0, 0, 0, 0.2) 35%, 
+                rgba(0, 0, 0, 0.2) 65%, 
+                rgba(0, 0, 0, 0.9) 100%);
             pointer-events: none;
             z-index: 2;
         }
@@ -217,7 +216,7 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            z-index: 3; /* 暗転レイヤーのさらに手前に文字を配置 */
+            z-index: 3;
         }
 
         .hero-title {
@@ -228,7 +227,7 @@
             color: var(--text-light);
             margin-bottom: 40px;
             letter-spacing: 0.02em;
-            /* 映画のような文字の浮かび上がりを演出するシャドウ */
+            /* 高級感を演出し、可読性を100%保証するシネマシャドウ */
             text-shadow: 0 4px 30px rgba(0, 0, 0, 0.9);
         }
 
@@ -575,10 +574,8 @@
             .gallery-item.large {
                 grid-row: auto;
             }
-            #home::after {
-                background: 
-                    linear-gradient(to bottom, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.3) 40%, rgba(0, 0, 0, 0.3) 60%, rgba(0, 0, 0, 0.95) 100%),
-                    linear-gradient(to right, rgba(0, 0, 0, 0.95) 0%, transparent 15%, transparent 85%, rgba(0, 0, 0, 0.95) 1005);
+            #home::before {
+                background-position: center 8%; /* スマホなどの縦長画面でも顔が綺麗に残るよう微調整 */
             }
         }
     </style>
@@ -642,7 +639,7 @@
                             <li>耳鼻咽喉科専門医</li>
                             <li>健康スポーツ認定医</li>
                             <li>慶應義塾大学大学院 公衆衛生学専攻 在籍</li>
-                            <li>Best Body Japan 2024 千葉大会グランプリ</li>
+                            <li>Best Body Japan 2024 千橋大会グランプリ</li>
                             <li>Best Body Japan 2024 日本大会出場</li>
                             <li>Best Body Japan 2025 東日本大会グランプリ</li>
                             <li>HYROX、スパルタンレースなど各種競技に出場</li>
