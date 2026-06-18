@@ -6,20 +6,33 @@
     <title>瀬越空人 オフィシャルサイト | Sorato Segoe Official Website</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         :root {
-            --bg-main: #ffffff;        /* 清潔感のある白 */
-            --bg-sub: #f5f8fc;         /* 優しく知的な淡い藍色 */
-            --primary: #102a54;        /* 信頼と誠実を象徴する深い藍色 */
-            --primary-light: #2563eb;  /* アクセント用の洗練されたブルー */
-            --text-main: #181d26;      /* 視認性が高く目に優しい濃紺グレー */
-            --text-sub: #4b5563;       /* 読みやすいサブテキスト */
-            --border: #e2e8f0;         /* 繊細な区切り線 */
+            /* カラーパレットの洗練 */
+            --bg-main: #ffffff;
+            --bg-sub: #f8fafc;
+            --primary: #0f172a;       /* より深みと高級感のあるダークネイビー */
+            --primary-light: #2563eb; /* 鮮やかで信頼感のあるブルー */
+            --text-main: #334155;     /* 真っ黒を避け、可読性を高めたスレートグレー */
+            --text-dark: #1e293b;
+            --text-sub: #64748b;
+            --border: #e2e8f0;
+            
+            /* タイポグラフィ */
             --font-serif: 'Noto Serif JP', serif;
             --font-sans: 'Inter', 'Noto Sans JP', sans-serif;
-            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            
+            /* モダンな多層シャドウ */
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.05), 0 8px 10px -6px rgb(0 0 0 / 0.05);
+            
+            /* なめらかなトランジション */
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-slow: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * {
@@ -36,9 +49,10 @@
             font-family: var(--font-sans);
             background-color: var(--bg-main);
             color: var(--text-main);
-            line-height: 1.9;
+            line-height: 1.8;
             -webkit-font-smoothing: antialiased;
-            letter-spacing: 0.04em;
+            -moz-osx-font-smoothing: grayscale;
+            letter-spacing: 0.03em;
         }
 
         a {
@@ -49,89 +63,116 @@
 
         .container {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1140px; /* 視線移動を最適化する幅に微調整 */
             margin: 0 auto;
             padding: 0 30px;
         }
 
         .section-padding {
-            padding: 120px 0;
+            padding: 140px 0; /* 余白を広げ、ゆとりと高級感を演出 */
         }
 
-        /* 見出し */
+        /* 見出しデザインのプロ化 */
         .section-title {
             font-family: var(--font-serif);
-            font-size: 2.4rem;
+            font-size: 2.5rem;
             font-weight: 700;
             color: var(--primary);
             letter-spacing: 0.05em;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
             position: relative;
+            line-height: 1.2;
         }
 
         .section-title span {
             font-family: var(--font-sans);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--primary-light);
             display: block;
             text-transform: uppercase;
-            letter-spacing: 0.2em;
-            margin-bottom: 10px;
-            font-weight: 700;
+            letter-spacing: 0.25em;
+            margin-bottom: 12px;
+            font-weight: 600;
         }
 
-        /* ヘッダー */
+        /* ヘッダー：グラスモーフィズムの導入 */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
             z-index: 1000;
-            border-bottom: 1px solid var(--border);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+            transition: var(--transition);
         }
 
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 85px;
+            height: 80px;
         }
 
         .logo {
             font-family: var(--font-sans);
             font-weight: 700;
-            font-size: 1.2rem;
-            letter-spacing: 0.15em;
+            font-size: 1.1rem;
+            letter-spacing: 0.2em;
             color: var(--primary);
+        }
+
+        .logo:hover {
+            opacity: 0.7;
         }
 
         .nav-menu {
             display: flex;
-            gap: 35px;
+            gap: 40px;
             list-style: none;
         }
 
         .nav-link {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-sub);
             font-weight: 500;
+            letter-spacing: 0.05em;
+            position: relative;
+        }
+
+        /* ホバー時の美しいアンダーラインエフェクト */
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary-light);
+            transition: var(--transition);
         }
 
         .nav-link:hover {
-            color: var(--primary-light);
+            color: var(--primary);
         }
 
-        /* ヒーローセクション */
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* ヒーローセクション：奥行きのある背景グラデーション */
         #home {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #f0f5fa 0%, #ffffff 100%);
-            padding-top: 85px;
+            background: 
+                radial-gradient(circle at top right, rgba(37, 99, 235, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at bottom left, rgba(37, 99, 235, 0.03) 0%, transparent 50%),
+                var(--bg-main);
+            padding-top: 80px;
             text-align: center;
         }
 
@@ -147,11 +188,12 @@
 
         .hero-title {
             font-family: var(--font-serif);
-            font-size: 2.6rem;
+            font-size: 2.8rem;
             font-weight: 700;
-            line-height: 1.6;
+            line-height: 1.5;
             color: var(--primary);
-            margin-bottom: 35px;
+            margin-bottom: 30px;
+            letter-spacing: 0.02em;
         }
 
         .hero-title span {
@@ -159,33 +201,36 @@
         }
 
         .hero-subtitle {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: var(--text-sub);
-            max-width: 850px;
-            margin: 0 auto 45px;
+            max-width: 800px;
+            margin: 0 auto 50px;
             font-weight: 400;
-            line-height: 1.8;
+            line-height: 1.9;
+            letter-spacing: 0.05em;
         }
         
         .hero-subtitle span {
             display: inline-block;
         }
 
-        /* SNSリンクエリア */
+        /* SNSリンクエリアの洗練 */
         .socials-box {
             background: var(--bg-main);
-            padding: 25px 40px;
-            border-radius: 50px;
-            box-shadow: 0 10px 30px rgba(16, 42, 84, 0.05);
+            padding: 24px 48px;
+            border-radius: 60px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(226, 232, 240, 0.5);
             display: inline-block;
         }
 
         .socials-title {
-            color: var(--primary);
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            margin-bottom: 15px;
+            color: var(--text-sub);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            margin-bottom: 16px;
+            text-transform: uppercase;
         }
 
         .hero-socials {
@@ -195,46 +240,47 @@
         }
 
         .social-icon {
-            width: 46px;
-            height: 46px;
-            border: 1px solid var(--border);
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--primary);
-            font-size: 1.15rem;
-            background: var(--bg-main);
+            color: var(--text-main);
+            font-size: 1.2rem;
+            background: var(--bg-sub);
+            transition: var(--transition);
         }
 
         .social-icon:hover {
-            border-color: var(--primary-light);
-            color: var(--bg-main);
+            color: #ffffff;
             background: var(--primary-light);
-            transform: translateY(-3px);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.4);
         }
 
-        /* プロフィールレイアウト（テキストと写真の比率を適度なバランスに修正） */
+        /* プロフィールレイアウト */
         .profile-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 60px;
             align-items: start;
         }
 
         .profile-text-content h3 {
             font-family: var(--font-serif);
             font-size: 2.2rem;
-            color: var(--primary);
-            margin-bottom: 5px;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            line-height: 1.2;
         }
 
         .profile-title-sub {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: var(--primary-light);
             margin-bottom: 35px;
-            font-weight: 700;
-            letter-spacing: 0.05em;
+            font-weight: 600;
+            letter-spacing: 0.08em;
         }
 
         .profile-bio {
@@ -244,13 +290,14 @@
             text-align: justify;
         }
 
-        /* 所属・資格・実績ボックス */
+        /* 所属・資格・実績ボックスのUI改善 */
         .cv-box {
             background: var(--bg-sub);
-            padding: 35px 40px;
-            border-radius: 12px;
-            border-left: 4px solid var(--primary);
-            margin-top: 35px;
+            padding: 40px;
+            border-radius: 16px;
+            border-left: 4px solid var(--primary-light);
+            margin-top: 40px;
+            box-shadow: var(--shadow-sm);
         }
 
         .cv-list {
@@ -259,173 +306,189 @@
 
         .cv-list li {
             font-size: 0.95rem;
-            margin-bottom: 12px;
-            color: var(--text-main);
+            margin-bottom: 16px;
+            color: var(--text-dark);
             font-weight: 500;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 16px;
+            line-height: 1.4;
         }
 
+        /* チェックマークを美しいアイコンスタイルに変更 */
         .cv-list li::before {
-            content: "✓";
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
             color: var(--primary-light);
-            font-weight: 700;
+            font-size: 0.75rem;
+            background: rgba(37, 99, 235, 0.1);
+            min-width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
         }
 
         .cv-list li:last-child {
             margin-bottom: 0;
         }
 
-        /* 
-           実績ギャラリー（最初の「左1枚・右2枚」のレイアウト）
-           適度なサイズを保ちつつ、見切れ防止の調整を加えています
-        */
+        /* 実績ギャラリーの洗練 */
         .gallery-grid {
             display: grid;
             grid-template-columns: 1.5fr 1fr;
-            gap: 15px;
+            gap: 16px;
             position: sticky;
-            top: 130px;
+            top: 120px;
         }
 
         .gallery-item {
             position: relative;
             overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
             background: var(--bg-sub);
+            /* ホバー時の枠のチラつき防止 */
+            transform: translateZ(0);
         }
 
         .gallery-item img {
             width: 100%;
             height: 100%;
-            /* 枠を埋めつつ、人物の顔が切れないよう「上部中央」を基準に配置 */
             object-fit: cover;
             object-position: center top; 
             display: block;
-            filter: grayscale(100%) brightness(0.95);
-            transition: var(--transition);
+            /* わずかに彩度を落とし、ホバーで鮮やかにするプロ仕様の演出 */
+            filter: grayscale(20%) brightness(0.95);
+            transition: var(--transition-slow);
         }
 
-        /* 右側の小さな写真を綺麗な正方形に固定し、過度な見切れを防ぐ */
         .gallery-item:not(.large) {
             aspect-ratio: 1 / 1;
         }
 
-        /* 左側の大きな写真は右側2枚の高さに合わせて自動的にスパンする */
         .gallery-item.large {
             grid-row: span 2;
         }
 
         .gallery-item:hover img {
-            filter: grayscale(0%) brightness(1);
-            transform: scale(1.02);
+            filter: grayscale(0%) brightness(1.02);
+            transform: scale(1.04);
         }
 
-        /* お問い合わせフォーム */
+        /* お問い合わせセクション */
         .contact-section-bg {
             background-color: var(--bg-sub);
+            border-top: 1px solid var(--border);
         }
 
         .contact-form {
             background: var(--bg-main);
-            padding: 50px 60px;
-            border-radius: 16px;
-            box-shadow: 0 20px 50px rgba(16, 42, 84, 0.06);
-            max-width: 850px;
+            padding: 60px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-xl);
+            max-width: 800px;
             margin: 0 auto;
         }
 
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 24px;
+            gap: 30px;
         }
 
         .form-group {
-            margin-bottom: 24px;
+            margin-bottom: 30px;
         }
 
         .form-label {
             display: block;
-            font-size: 0.9rem;
-            color: var(--primary);
-            margin-bottom: 10px;
-            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
         }
 
+        /* フォーム入力欄のUX向上 */
         input, textarea {
             width: 100%;
-            padding: 16px;
-            background: #fafbfe;
-            border: 1px solid #cbd5e1;
-            border-radius: 8px;
-            color: var(--text-main);
+            padding: 16px 20px;
+            background: #f8fafc;
+            border: 1px solid transparent;
+            box-shadow: inset 0 0 0 1px var(--border);
+            border-radius: 10px;
+            color: var(--text-dark);
             font-family: var(--font-sans);
             font-size: 1rem;
             transition: var(--transition);
         }
 
+        input::placeholder, textarea::placeholder {
+            color: #94a3b8;
+        }
+
         input:focus, textarea:focus {
             outline: none;
-            border-color: var(--primary-light);
             background: var(--bg-main);
-            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+            box-shadow: inset 0 0 0 1px var(--primary-light), 0 0 0 4px rgba(37, 99, 235, 0.1);
         }
 
         textarea {
             resize: vertical;
+            min-height: 120px;
         }
 
         .submit-btn-wrapper {
             text-align: center;
-            margin-top: 15px;
+            margin-top: 20px;
         }
 
         button {
             background: var(--primary);
-            color: var(--bg-main);
-            padding: 18px 60px;
+            color: #ffffff;
+            padding: 18px 64px;
             border: none;
-            border-radius: 50px;
+            border-radius: 60px;
             font-size: 1rem;
-            font-weight: 700;
-            letter-spacing: 0.05em;
+            font-weight: 600;
+            letter-spacing: 0.1em;
             cursor: pointer;
-            box-shadow: 0 10px 25px rgba(16, 42, 84, 0.15);
+            box-shadow: var(--shadow-md);
             transition: var(--transition);
         }
 
         button:hover {
             background: var(--primary-light);
-            transform: translateY(-2px);
-            box-shadow: 0 15px 30px rgba(37, 99, 235, 0.25);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4);
         }
 
         /* フッター */
         footer {
             background: var(--primary);
-            color: rgba(255, 255, 255, 0.7);
-            padding: 40px 0;
+            color: rgba(255, 255, 255, 0.6);
+            padding: 50px 0;
             text-align: center;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             letter-spacing: 0.05em;
         }
 
-        /* レスポンシブ */
+        /* レスポンシブ最適化 */
         @media (max-width: 992px) {
             .profile-grid {
                 grid-template-columns: 1fr;
-                gap: 50px;
+                gap: 60px;
             }
             .gallery-grid {
                 position: static;
-                max-width: 550px; /* スマホ・タブレット表示時も適度なサイズに制御 */
+                max-width: 550px;
                 margin: 0 auto;
             }
             .hero-title {
-                font-size: 2.1rem;
+                font-size: 2.2rem;
             }
             .form-row {
                 grid-template-columns: 1fr;
@@ -435,23 +498,28 @@
 
         @media (max-width: 640px) {
             .container {
-                padding: 0 20px;
+                padding: 0 24px;
             }
             .section-padding {
-                padding: 80px 0;
+                padding: 100px 0;
             }
             .nav-menu {
                 display: none;
             }
             .contact-form {
-                padding: 35px 20px;
+                padding: 40px 24px;
             }
             .hero-title {
-                font-size: 1.6rem;
-                line-height: 1.5;
+                font-size: 1.7rem;
             }
             .hero-subtitle {
                 font-size: 1rem;
+            }
+            .socials-box {
+                padding: 20px 30px;
+            }
+            .section-title {
+                font-size: 2.2rem;
             }
         }
     </style>
@@ -561,7 +629,7 @@
                     
                     <div class="form-group">
                         <label class="form-label">メッセージ</label>
-                        <textarea name="message" rows="6" required placeholder="ご質問やご相談内容をご記入ください"></textarea>
+                        <textarea name="message" required placeholder="ご質問やご相談内容をご記入ください"></textarea>
                     </div>
                     
                     <div class="submit-btn-wrapper">
