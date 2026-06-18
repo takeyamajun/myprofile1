@@ -218,7 +218,8 @@
         /* プロフィール ＆ 実績レイアウト */
         .profile-grid {
             display: grid;
-            grid-template-columns: 1.1fr 1fr;
+            /* 以前の1.1fr 1frから変更し、写真エリア(右側)を大きくしました */
+            grid-template-columns: 1fr 1.25fr;
             gap: 60px;
             align-items: start;
         }
@@ -313,7 +314,8 @@
             grid-row: span 2;
             aspect-ratio: auto;
             height: 100%;
-            min-height: 480px;
+            /* 写真が大きくなった分、高さも確保します */
+            min-height: 560px;
         }
 
         /* お問い合わせフォーム */
@@ -396,16 +398,6 @@
             box-shadow: 0 15px 30px rgba(37, 99, 235, 0.25);
         }
 
-        /* フッター */
-        footer {
-            background: var(--primary);
-            color: rgba(255, 255, 255, 0.7);
-            padding: 40px 0;
-            text-align: center;
-            font-size: 0.85rem;
-            letter-spacing: 0.05em;
-        }
-
         /* レスポンシブ */
         @media (max-width: 992px) {
             .profile-grid {
@@ -414,7 +406,8 @@
             }
             .gallery-grid {
                 position: static;
-                max-width: 600px;
+                /* スマホ・タブレット表示時も写真が大きく表示されるよう枠を広げました */
+                max-width: 800px;
                 margin: 0 auto;
             }
             .hero-title {
@@ -518,15 +511,12 @@
                 
                 <div class="gallery-grid">
                     <div class="gallery-item large">
-                        <!-- 写真差し替え箇所1: IMG_1.jpeg -->
                         <img src="IMG_1.jpeg" alt="瀬越空人 プロフィール写真">
                     </div>
                     <div class="gallery-item">
-                        <!-- 写真差し替え箇所2: IMG_2.jpeg -->
                         <img src="IMG_2.jpeg" alt="瀬越空人 フィットネス活動風景1">
                     </div>
                     <div class="gallery-item">
-                        <!-- 写真差し替え箇所3: IMG_3.jpeg -->
                         <img src="IMG_3.jpeg" alt="瀬越空人 フィットネス活動風景2">
                     </div>
                 </div>
