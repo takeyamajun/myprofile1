@@ -15,7 +15,7 @@
         :root {
             /* 完全に洗練されたカラーパレット */
             --bg-light: #fcfcfd;
-            --bg-dark: #0a0f18;
+            --bg-dark: #070b12; /* 写真の黒と完璧に同化するようトーンを微調整 */
             --text-dark: #111827;
             --text-muted: #6b7280;
             --text-light: #ffffff;
@@ -81,13 +81,13 @@
         /* 計算されたコンテナと余白 */
         .container {
             width: 100%;
-            max-width: 1280px; /* 余裕のあるワイドな設計 */
+            max-width: 1280px;
             margin: 0 auto;
             padding: 0 40px;
         }
 
         .section-padding {
-            padding: 160px 0; /* マクロ・ホワイトスペース（極上の余白） */
+            padding: 160px 0;
         }
 
         /* 劇的な見出しデザイン */
@@ -162,46 +162,48 @@
         }
 
         /* ==========================================
-           ヒーローセクション（シネマティック画像・アドバンスド融合）
+           ヒーローセクション（プログレード・フェード融合）
            ========================================== */
         #home {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: var(--bg-dark); /* 写真の外側を満たす洗練された漆黒 */
+            background-color: var(--bg-dark);
             padding-top: 90px;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        /* HTMLを変更せず、CSS擬似要素で写真のサイズと見切れを完璧にコントロール */
+        /* プロの境界線隠しテクニック：グラデーションマスクの適用 */
         #home::before {
             content: '';
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 90%;
-            max-width: 800px; /* 写真が巨大化して見切れるのを防ぐ上限サイズ */
-            height: 75vh;     /* 画面内に美しく収まる上品な高さ */
+            width: 100%;
+            height: 85vh; /* 窮屈感を無くし、見切れない限界までダイナミックに拡大 */
             background-image: url('IMG_4.jpeg');
-            background-size: contain; /* 絶対に見切れないように全体をジャストフィット */
+            background-size: contain; /* 絶対に見切れないようジャストフィット */
             background-position: center;
             background-repeat: no-repeat;
-            opacity: 0.45; /* 文字の可読性を最優先にしつつ、宣材写真の存在感を出す絶妙な不透明度 */
+            opacity: 0.5; /* 文字の可読性と写真の存在感を両立する黄金比 */
             pointer-events: none;
             z-index: 1;
+            
+            /* 四角い輪郭（エッジ）を完全に消失させ、背景に溶け込ませるプロのマスク処理 */
+            -webkit-mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 25%, rgba(0,0,0,0) 70%);
+            mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 25%, rgba(0,0,0,0) 70%);
         }
         
-        /* 写真の前後にシャドウレイヤーを重ね、文字を極限まで浮かび上がらせる */
+        /* 背後から包み込むシネマティックな暗転レイヤー */
         #home::after {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            /* 中心は薄く、周囲に向かって滑らかに暗くなるシネマティックマスク */
-            background: radial-gradient(circle at center, rgba(10, 15, 24, 0.2) 0%, rgba(10, 15, 24, 0.85) 75%);
+            background: radial-gradient(circle at center, rgba(7, 11, 18, 0.1) 0%, rgba(7, 11, 18, 0.8) 80%);
             pointer-events: none;
             z-index: 2;
         }
@@ -215,33 +217,33 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            z-index: 3; /* 文字とSNSリンクを写真（z-index:1,2）の最前面へ重ねる */
+            z-index: 3; /* 写真より前面に配置して完璧な可読性を確保 */
         }
 
         .hero-title {
             font-family: var(--font-display);
-            /* Fluid Typography: 画面サイズでドラマチックに可変 */
             font-size: clamp(2rem, 4vw, 3.2rem);
             font-weight: 600;
             line-height: 1.4;
-            /* 背景が暗いため文字を白に変更 */
             color: var(--text-light);
             margin-bottom: 40px;
             letter-spacing: 0.02em;
+            /* テキストにわずかな奥行き（スモークシャドウ）を与え、写真と重なってもくっきり読めるように */
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
         }
 
         .hero-subtitle {
             font-size: clamp(1rem, 2vw, 1.1rem);
-            /* サブタイトルも白の半透明に変更 */
             color: rgba(255, 255, 255, 0.8);
             max-width: 800px;
             margin: 0 auto 60px;
             font-weight: 400;
             line-height: 2;
             letter-spacing: 0.05em;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
         }
 
-        /* SNSリンクのミニマル・ピルデザイン（ダーク背景対応） */
+        /* SNSリンクのミニマル・ピルデザイン */
         .socials-box {
             display: flex;
             align-items: center;
@@ -283,7 +285,9 @@
             color: var(--text-light);
             font-size: 1.1rem;
             border: 1px solid rgba(255, 255, 255, 0.3);
-            background: transparent;
+            background: rgba(7, 11, 18, 0.4);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
             transition: var(--transition-fast);
         }
 
@@ -298,7 +302,7 @@
            ========================================== */
         .profile-grid {
             display: grid;
-            grid-template-columns: 4.5fr 5.5fr; /* 黄金比に近い洗練された分割 */
+            grid-template-columns: 4.5fr 5.5fr;
             gap: 80px;
             align-items: start;
         }
@@ -332,7 +336,6 @@
             line-height: 2.2;
         }
 
-        /* 所属・資格・実績ボックスのソリッドデザイン */
         .cv-box {
             background: transparent;
             padding: 40px 0 0 0;
@@ -356,7 +359,7 @@
         }
 
         .cv-list li::before {
-            content: "—"; /* ミニマルなダッシュに変更 */
+            content: "—";
             color: var(--accent);
             font-weight: 300;
         }
@@ -377,7 +380,6 @@
             position: relative;
             overflow: hidden;
             background: #e2e8f0;
-            /* 野暮ったい角丸を排し、シャープでプロフェッショナルな印象へ */
             border-radius: 0; 
         }
 
@@ -387,10 +389,9 @@
             object-fit: cover;
             object-position: center top; 
             display: block;
-            /* 完全にモノクロに落とし、ホバーで鮮やかな色彩が戻る演出 */
             filter: grayscale(100%) contrast(1.1);
             transition: var(--transition-slow);
-            transform: scale(1.01); /* エッジの隙間防止 */
+            transform: scale(1.01);
         }
 
         .gallery-item:hover img {
@@ -403,7 +404,6 @@
             height: 100%;
         }
 
-        /* 右側の2枚を強制的に正方形に近い比率に揃える */
         .gallery-item:not(.large) {
             aspect-ratio: 1 / 1;
         }
@@ -451,7 +451,6 @@
             text-transform: uppercase;
         }
 
-        /* 箱型を廃止し、ミニマルな下線（Material/Editorial）スタイルへ */
         input, textarea {
             width: 100%;
             padding: 12px 0;
@@ -483,7 +482,7 @@
 
         .submit-btn-wrapper {
             margin-top: 60px;
-            text-align: right; /* 右寄せにしてスタイリッシュに */
+            text-align: right;
         }
 
         button {
@@ -491,7 +490,7 @@
             color: var(--bg-dark);
             padding: 20px 60px;
             border: none;
-            border-radius: 0; /* シャープなボタン */
+            border-radius: 0;
             font-size: 0.9rem;
             font-weight: 600;
             letter-spacing: 0.2em;
@@ -531,7 +530,6 @@
             .gallery-grid {
                 position: static;
                 max-width: 100%;
-                /* タブレット・スマホでも左大・右小の構成を美しく維持 */
                 grid-template-columns: 2fr 1fr;
             }
         }
@@ -544,7 +542,7 @@
                 padding: 100px 0;
             }
             .nav-menu {
-                display: none; /* スマホではナビゲーションを非表示（よりシンプルに） */
+                display: none;
             }
             .form-row {
                 grid-template-columns: 1fr;
@@ -567,7 +565,6 @@
                 width: 100%;
             }
             .gallery-grid {
-                /* スマホサイズでは縦積みに変更し、写真を大きく見せる */
                 grid-template-columns: 1fr;
                 grid-template-rows: auto;
                 gap: 16px;
@@ -579,8 +576,10 @@
                 grid-row: auto;
             }
             #home::before {
-                width: 95%;
-                height: 50vh; /* スマホでは高さをさらに最適化 */
+                width: 100%;
+                height: 60vh; /* モバイル端末に合わせた最適なバランスに自動調整 */
+                -webkit-mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 35%, rgba(0,0,0,0) 75%);
+                mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 35%, rgba(0,0,0,0) 75%);
             }
         }
     </style>
