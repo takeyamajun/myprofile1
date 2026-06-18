@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>瀬越空人 オフィシャルサイト | Sorato Segoe Official Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        :root {
+            --bg-main: #ffffff;        /* 清潔感のある白 */
+            --bg-sub: #f5f8fc;         /* 優しく知的な淡い藍色 */
+            --primary: #102a54;        /* 信頼と誠実を象徴する深い藍色 */
+            --primary-light: #2563eb;  /* アクセント用の洗練されたブルー */
+            --text-main: #181d26;      /* 視認性が高く目に優しい濃紺グレー */
+            --text-sub: #4b5563;       /* 読みやすいサブテキスト */
+            --border: #e2e8f0;         /* 繊細な区切り線 */
+            --font-serif: 'Noto Serif JP', serif;
+            --font-sans: 'Inter', 'Noto Sans JP', sans-serif;
+            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.9;
+            -webkit-font-smoothing: antialiased;
+            letter-spacing: 0.04em;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .section-padding {
+            padding: 120px 0;
+        }
+
+        /* 見出し */
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 0.05em;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title span {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            color: var(--primary-light);
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        /* ヘッダー */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 85px;
+        }
+
+        .logo {
+            font-family: var(--font-sans);
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 0.15em;
+            color: var(--primary);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-light);
+        }
+
+        /* ヒーローセクション（完全センター配置） */
+        #home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f0f5fa 0%, #ffffff 100%);
+            padding-top: 85px;
+            text-align: center;
+        }
+
+        .hero-content {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* タイトルの不自然な改行を防ぐ調整 */
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: 2.6rem;
+            font-weight: 700;
+            line-height: 1.6;
+            color: var(--primary);
+            margin-bottom: 35px;
+        }
+
+        .hero-title span {
+            display: inline-block;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-sub);
+            max-width: 850px;
+            margin: 0 auto 45px;
+            font-weight: 400;
+            line-height: 1.8;
+        }
+       
+        .hero-subtitle span {
+            display: inline-block;
+        }
+
+        /* SNSリンクエリア */
+        .socials-box {
+            background: var(--bg-main);
+            padding: 25px 40px;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(16, 42, 84, 0.05);
+            display: inline-block;
+        }
+
+        .socials-title {
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            margin-bottom: 15px;
+        }
+
+        .hero-socials {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icon {
+            width: 46px;
+            height: 46px;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.15rem;
+            background: var(--bg-main);
+        }
+
+        .social-icon:hover {
+            border-color: var(--primary-light);
+            color: var(--bg-main);
+            background: var(--primary-light);
+            transform: translateY(-3px);
+        }
+
+        /* プロフィール ＆ 実績レイアウト */
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .profile-text-content h3 {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .profile-title-sub {
+            font-size: 1rem;
+            color: var(--primary-light);
+            margin-bottom: 35px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        .profile-bio {
+            color: var(--text-main);
+            font-size: 1rem;
+            margin-bottom: 24px;
+            text-align: justify;
+        }
+
+        /* 所属・資格・実績ボックス */
+        .cv-box {
+            background: var(--bg-sub);
+            padding: 35px 40px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            margin-top: 35px;
+        }
+
+        .cv-list {
+            list-style: none;
+        }
+
+        .cv-list li {
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            color: var(--text-main);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .cv-list li::before {
+            content: "✓";
+            color: var(--primary-light);
+            font-weight: 700;
+        }
+
+        .cv-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 実績ギャラリー（大1枚、小2枚） */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1.8fr 1fr;
+            gap: 15px;
+            position: sticky;
+            top: 130px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            background: #e2e8f0;
+            aspect-ratio: 4/3;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%) brightness(0.95);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            filter: grayscale(0%) brightness(1);
+            transform: scale(1.02);
+        }
+
+        .gallery-item.large {
+            grid-row: span 2;
+            aspect-ratio: auto;
+            height: 100%;
+            min-height: 480px;
+        }
+
+        /* お問い合わせフォーム */
+        .contact-section-bg {
+            background-color: var(--bg-sub);
+        }
+
+        .contact-form {
+            background: var(--bg-main);
+            padding: 50px 60px;
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(16, 42, 84, 0.06);
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 16px;
+            background: #fafbfe;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-light);
+            background: var(--bg-main);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .submit-btn-wrapper {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        button {
+            background: var(--primary);
+            color: var(--bg-main);
+            padding: 18px 60px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(16, 42, 84, 0.15);
+            transition: var(--transition);
+        }
+
+        button:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(37, 99, 235, 0.25);
+        }
+
+        /* フッター */
+        footer {
+            background: var(--primary);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 992px) {
+            .profile-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            .gallery-grid {
+                position: static;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            .hero-title {
+                font-size: 2.1rem;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 20px;
+            }
+            .section-padding {
+                padding: 80px 0;
+            }
+            .nav-menu {
+                display: none;
+            }
+            .contact-form {
+                padding: 35px 20px;
+            }
+            .hero-title {
+                font-size: 1.6rem;
+                line-height: 1.5;
+            }
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#home" class="logo">SORATO SEGOE</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">Profile</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span>「運動をすることで人の心と体が豊かになり、</span><br>
+                    <span>健康寿命が延伸される世界へ」</span>
+                </h1>
+                <p class="hero-subtitle">
+                    <span>臨床医学から公衆衛生、そしてフィットネスの実践者として</span>
+                    <span>挑む健康寿命延伸へのアプローチ</span>
+                </p>
+               
+                <div class="socials-box">
+                    <p class="socials-title">各種SNSはこちら</p>
+                    <div class="hero-socials">
+                        <a href="https://lin.ee/Ymh7pAO" target="_blank" class="social-icon" title="LINE公式アカウント"><i class="fa-brands fa-line"></i></a>
+                        <a href="https://www.instagram.com/dr.sorato_segoe" target="_blank" class="social-icon" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.threads.com/@dr.sorato_segoe" target="_blank" class="social-icon" title="Threads"><i class="fa-brands fa-threads"></i></a>
+                        <a href="https://note.com/kind_takin8006" target="_blank" class="social-icon" title="note"><i class="fa-solid fa-pen-nib"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="profile-grid">
+               
+                <div class="profile-text-content">
+                    <h2 class="section-title"><span>Biography</span>Profile</h2>
+                    <h3>瀬越 空人</h3>
+                    <p class="profile-title-sub">耳鼻咽喉科専門医 ・ 健康スポーツ認定医</p>
+                   
+                    <p class="profile-bio">医師として診療に携わる傍ら、公衆衛生を専門に学んでおり、「運動をすることで人の心と体が豊かになり、健康寿命が延伸される世界へ」をテーマに活動しています。</p>
+                    <p class="profile-bio">臨床現場では、一般耳鼻科診療と頭頸部癌治療を行っていた一方で、多くの生活習慣病や健康課題は、病院の診察室だけでは解決できないことも実感してきました。</p>
+                    <p class="profile-bio">そこで現在は慶應義塾大学大学院にて公衆衛生学を学びながら、運動疫学、行動科学、予防医学を軸に、健康寿命延伸や行動変容に関する研究・発信・事業構想に取り組んでいます。</p>
+                    <p class="profile-bio">一個人としても運動を愛しており、筋力トレーニングや持久系スポーツを日常的に実践しています。2024年にはBest Body Japan日本大会に出場し、フィットネスを通じた健康づくりの可能性を探求しています。</p>
+                   
+                    <div class="cv-box">
+                        <ul class="cv-list">
+                            <li>耳鼻咽喉科専門医</li>
+                            <li>健康スポーツ認定医</li>
+                            <li>慶應義塾大学大学院 公衆衛生学専攻 在籍</li>
+                            <li>Best Body Japan 2024 千葉大会グランプリ</li>
+                            <li>Best Body Japan 2024 日本大会出場</li>
+                            <li>Best Body Japan 2025 東日本大会グランプリ</li>
+                            <li>HYROX、スパルタンレースなど各種競技に出場</li>
+                        </ul>
+                    </div>
+                </div>
+               
+                <div class="gallery-grid">
+                    <div class="gallery-item large">
+                        <!-- 写真差し替え箇所1: 医師・プロフェッショナルを想起させるダミー画像 -->
+                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=800&auto=format&fit=crop" alt="瀬越空人 プロフィール写真">
+                    </div>
+                    <div class="gallery-item">
+                        <!-- 写真差し替え箇所2: フィットネス関連のダミー画像 -->
+                        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=800&auto=format&fit=crop" alt="瀬越空人 フィットネス活動風景1">
+                    </div>
+                    <div class="gallery-item">
+                        <!-- 写真差し替え箇所3: スポーツ・アクティビティ関連のダミー画像 -->
+                        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=800&auto=format&fit=crop" alt="瀬越空人 フィットネス活動風景2">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding contact-section-bg">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center;"><span>Get In Touch</span>Contact</h2>
+           
+            <div class="contact-form">
+                <form action="https://formsubmit.co/jesse.soratosegoe@gmail.com" method="POST">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_subject" value="【オフィシャルサイト】新しいお問い合わせ">
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">お名前</label>
+                            <input type="text" name="name" required placeholder="山田 太郎">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">メールアドレス</label>
+                            <input type="email" name="email" required placeholder="example@email.com">
+                        </div>
+                    </div>
+                   
+                    <div class="form-group">
+                        <label class="form-label">メッセージ</label>
+                        <textarea name="message" rows="6" required placeholder="ご質問やご相談内容をご記入ください"></textarea>
+                    </div>
+                   
+                    <div class="submit-btn-wrapper">
+                        <button type="submit">送信する</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <script>document.write(new Date().getFullYear())</script> Sorato Segoe. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
