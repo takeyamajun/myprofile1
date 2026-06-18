@@ -162,20 +162,48 @@
         }
 
         /* ==========================================
-           ヒーローセクション（シネマティック画像背景）
+           ヒーローセクション（シネマティック画像・アドバンスド融合）
            ========================================== */
         #home {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            /* 背景画像 IMG_4 を設定し、文字の視認性を高めるためダークグラデーションを重ねる */
-            background: linear-gradient(rgba(10, 15, 24, 0.5), rgba(10, 15, 24, 0.85)), url('IMG_4.jpeg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            background-color: var(--bg-dark); /* 写真の外側を満たす洗練された漆黒 */
             padding-top: 90px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* HTMLを変更せず、CSS擬似要素で写真のサイズと見切れを完璧にコントロール */
+        #home::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 800px; /* 写真が巨大化して見切れるのを防ぐ上限サイズ */
+            height: 75vh;     /* 画面内に美しく収まる上品な高さ */
+            background-image: url('IMG_4.jpeg');
+            background-size: contain; /* 絶対に見切れないように全体をジャストフィット */
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.45; /* 文字の可読性を最優先にしつつ、宣材写真の存在感を出す絶妙な不透明度 */
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        /* 写真の前後にシャドウレイヤーを重ね、文字を極限まで浮かび上がらせる */
+        #home::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            /* 中心は薄く、周囲に向かって滑らかに暗くなるシネマティックマスク */
+            background: radial-gradient(circle at center, rgba(10, 15, 24, 0.2) 0%, rgba(10, 15, 24, 0.85) 75%);
+            pointer-events: none;
+            z-index: 2;
         }
 
         .hero-content {
@@ -186,6 +214,8 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            position: relative;
+            z-index: 3; /* 文字とSNSリンクを写真（z-index:1,2）の最前面へ重ねる */
         }
 
         .hero-title {
@@ -547,6 +577,10 @@
             }
             .gallery-item.large {
                 grid-row: auto;
+            }
+            #home::before {
+                width: 95%;
+                height: 50vh; /* スマホでは高さをさらに最適化 */
             }
         }
     </style>
